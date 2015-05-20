@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using Marketplace.Interview.Business.Specification;
+using System.Linq;
 
 namespace Marketplace.Interview.Business.Basket
 {
@@ -11,13 +12,17 @@ namespace Marketplace.Interview.Business.Basket
     {
         public decimal CalculateShipping(Basket basket)
         {
+            const decimal discount = 0.5m;
+            ToBeDupliCateSpecification _duplicateSpecification = new ToBeDupliCateSpecification();
             foreach (var lineItem in basket.LineItems)
             {
                 lineItem.ShippingAmount = lineItem.Shipping.GetAmount(lineItem, basket);
                 lineItem.ShippingDescription = lineItem.Shipping.GetDescription(lineItem, basket);
             }
-
-            return basket.LineItems.Sum(li => li.ShippingAmount);
+            basket.Shipping = basket.LineItems.Sum(t=>t.ShippingAmount);
+            basket.Discount = (_duplicateSpecification.IsSatisfiedBy(basket)) ? discount : 0;
+            basket.TotalShipping = basket.Shipping - basket.Discount;
+            return basket.Shipping;
         }
     }
 }

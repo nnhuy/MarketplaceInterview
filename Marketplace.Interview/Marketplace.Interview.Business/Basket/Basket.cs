@@ -8,6 +8,8 @@ namespace Marketplace.Interview.Business.Basket
     public class Basket
     {
         public List<LineItem> LineItems { get; set; }
+        public decimal Discount { get; set; }
+        public decimal TotalShipping { get; set; }
         public decimal Shipping { get; set; }
     }
 

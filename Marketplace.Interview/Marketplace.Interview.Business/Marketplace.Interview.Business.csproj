@@ -66,6 +66,7 @@
     <Compile Include="Basket\IShippingCalculator.cs" />
     <Compile Include="Basket\RemoveFromBasketCommand.cs" />
     <Compile Include="Shipping\FlatRateShipping.cs" />
+    <Compile Include="Shipping\PerRegionAnotherShipping.cs" />
     <Compile Include="Shipping\PerRegionShipping.cs" />
     <Compile Include="Shipping\RegionShippingCost.cs" />
     <Compile Include="Shipping\ShippingBase.cs" />
@@ -73,6 +74,12 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Queries.cs" />
     <Compile Include="Shipping\ShippingOptions.cs" />
+    <Compile Include="Specification\BaseSpecification\AndSpecification.cs" />
+    <Compile Include="Specification\BaseSpecification\CompositeSpecification.cs" />
+    <Compile Include="Specification\BaseSpecification\ISpecification.cs" />
+    <Compile Include="Specification\BaseSpecification\NotSpecification.cs" />
+    <Compile Include="Specification\BaseSpecification\OrSpecification.cs" />
+    <Compile Include="Specification\ToBeDupliCateSpecification.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
